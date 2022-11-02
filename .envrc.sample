@@ -1,0 +1,13 @@
+set -a
+
+#GCP
+export PROJECT=""
+export SA_NAME=""
+export SA_EMAIL=""
+export IMAGE_URI=""
+export BUILD_BUCKET=""
+
+#AWS
+export ROLE_NAME=""
+export POLICY_ARN=""
+export AWS_REGION=""
