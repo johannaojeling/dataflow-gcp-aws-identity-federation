@@ -1,4 +1,4 @@
-FROM golang:1.18-buster as builder
+FROM golang:1.18-bullseye as builder
 
 WORKDIR /pipeline
 
@@ -13,7 +13,7 @@ ENV GOARCH amd64
 RUN go build -v -o gen-aws-creds
 
 
-FROM apache/beam_go_sdk:2.42.0
+FROM apache/beam_go_sdk:latest
 
 COPY --chmod=0755 entrypoint.sh /pipeline/entrypoint.sh
 COPY --from=builder /pipeline/gen-aws-creds /pipeline/gen-aws-creds
