@@ -149,7 +149,10 @@ Build image with Cloud Build:
 ```bash
 gcloud builds submit . \
 --gcs-source-staging-dir=gs://${BUILD_BUCKET}/staging \
---substitutions="_IMAGE_URI=${IMAGE_URI},_LOGS_BUCKET=${BUILD_BUCKET},_AWS_ROLE_ARN=${AWS_ROLE_ARN},_AWS_REGION=${AWS_REGION}"
+--substitutions="_IMAGE_URI=${IMAGE_URI},\
+_LOGS_DIR=gs://${BUILD_BUCKET}/logs,\
+_AWS_ROLE_ARN=${AWS_ROLE_ARN},\
+_AWS_REGION=${AWS_REGION}"
 ```
 
 ## 3. Run a Dataflow pipeline using the image
